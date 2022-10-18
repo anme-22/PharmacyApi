@@ -1,0 +1,42 @@
+const sequelize= require('sequelize');
+const db = require('../Configuracion/bd');
+const productos = db.define(
+    "productos",
+    {
+        idProducto:{
+            type:sequelize.INTEGER,
+            primaryKey:true,
+            autoIncrement:true,
+            allowNull:false,
+        },
+        nombreProducto:{
+            type:sequelize.STRING(100),
+            allowNull:false,
+        },
+        precio:{
+            type:sequelize.FLOAT,
+            allowNull:false,
+        },
+        idTipoProducto:{
+            type:sequelize.INTEGER,
+            allowNull:false,
+        },
+        cantidadProducto:{
+            type:sequelize.INTEGER(10),
+            allowNull:false,
+        },
+        IdMarca:{
+            type:sequelize.INTEGER,
+            allowNull:false,
+        },
+        imagen:{
+            type:sequelize.STRING(250),
+            allowNull:true
+        }
+    },
+    {
+        tablename:"productos",
+        timestamps:false,
+    }
+);
+module.exports=productos;
